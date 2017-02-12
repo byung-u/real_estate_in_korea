@@ -8,7 +8,7 @@ import configparser
 from datetime import datetime
 
 
-def t001(url):
+def _get_trade_price(gu, dong, apt):
     req = urllib.request.Request(url)
     try:
         res = urllib.request.urlopen(req)
@@ -22,10 +22,6 @@ def t001(url):
         print('\t', soup.resultmsg.string)
         return -1
 
-    #dong = '이촌동'
-    apt = '자이'
-    dong = '대흥동'
-    #apt = '자이'
     items = soup.findAll('item')
     for item in items:
         item = item.text
@@ -41,7 +37,8 @@ def t001(url):
 
     return 0
 
-def get_trade_price():
+def get_trade_price(gu='마포', dong='대흥', apt='자이'):
+    # TODO 1: module, split
     config = configparser.ConfigParser()
     config.readfp(open('./bot.ini'))
     url = config.get('TOKEN', 'apt_trade_url')
@@ -56,10 +53,11 @@ def get_trade_price():
             month += 12
 
         time_str = '%4d%02d' % (year, month)
-        print(time_str)
-        request_url = '%s?LAWD_CD=%s&DEAL_YMD=%s&serviceKey=%s' % (url, 11440, time_str, svc_key)
+        
+    # TODO 2: local code from 'gu' info
+        request_url = '%s?LAWD_CD=%s&DEAL_YMD=%s&serviceKey=%s' % (
+                url, 11440, time_str, svc_key)
         month = month - 1
-        t001(request_url)
+        _get_trade_price(request_url, gu, dong, apt)
 
-    #request_url = '%s?LAWD_CD=%s&DEAL_YMD=%s&serviceKey=%s' % (url, 11440, 201701, svc_key)
 
