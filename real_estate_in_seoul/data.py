@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 
 
-def _get_trade_price(url: str, options) -> int:
+def request_trade_price(url: str, options) -> int:
     req = urllib.request.Request(url)
     try:
         res = urllib.request.urlopen(req)
@@ -17,8 +17,7 @@ def _get_trade_price(url: str, options) -> int:
     data = res.read().decode('utf-8')
     soup = BeautifulSoup(data, 'html.parser')
     if (soup.resultcode.string != '00'):
-        print('[TEST001][Not OK]\t')
-        print('\t', soup.resultmsg.string)
+        print('[ERR]', soup.resultmsg.string)
         return -1
 
     items = soup.findAll('item')
@@ -26,9 +25,9 @@ def _get_trade_price(url: str, options) -> int:
         item = item.text
         item = re.sub('<.*?>', '|', item)
         info = item.split('|')
-        if info[4].startswith(options.dong) is False:
+        if options.dong is not None and info[4].startswith(options.dong) is False:
             continue
-        if info[5].find(options.apt) == -1:
+        if options.apt is not None and info[5].find(options.apt) == -1:
             continue
         ret_msg = '%s %s(%sm²) %s층 %s만원     준공:%s 거래:%s년%s월%s일' % (
                 info[4], info[5], info[8], info[11], info[1], info[2], info[3], info[6], info[7])
@@ -59,8 +58,8 @@ def get_trade_price(options) -> None:
         request_url = '%s?LAWD_CD=%s&DEAL_YMD=%s&serviceKey=%s' % (
                 options.url, local_code, time_str, options.svc_key)
         # print(request_url)
-        ret = _get_trade_price(request_url, options)
+        ret = request_trade_price(request_url, options)
         if ret != 0:
-            print('_get_trade_price failed, req_url=%s' % request_url)
+            print('request_trade_price failed, req_url=%s' % request_url)
 
     return
