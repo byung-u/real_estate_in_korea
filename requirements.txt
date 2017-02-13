@@ -1,0 +1,4 @@
+beautifulsoup4==4.5.1
+typing==3.5.2.2
+configparser==3.5.0
+urllib3==1.19.1
