@@ -22,6 +22,10 @@
 
     `% real_estate_in_seoul -g 서초구`
 
+  - 알고자하는 그 아파트를 검색
+
+    `% real_estate_in_seoul -g 중구 -d 황학동 -t 황학 -m 6`
+
 - Options
 
   - g : xx구(서초구, 마포구, 강북구, ... )
