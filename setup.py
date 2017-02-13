@@ -26,6 +26,9 @@ scripts = ['scripts/real_estate_in_seoul']
 #if os.name == 'nt':
 #    scripts.append('scripts/mypy.bat')
 
+with open('requirements.txt') as f:
+    required = f.read().splitlines()
+
 setup(
     name='real_estate_in_seoul',
 
@@ -89,6 +92,7 @@ setup(
     # requirements files see:
     # https://packaging.python.org/en/latest/requirements.html
     #install_requires=['peppercorn'],
+    install_requires=required,
 
     # List additional groups of dependencies here (e.g. development
     # dependencies). You can install these using the following syntax,
