@@ -1,8 +1,13 @@
 # real_estate_in_seoul
 
-실거래가 조회하기 위한 파이썬 유틸리티 모아둠
+실거래 매매가 조회하기 위한 파이썬 유틸리티
 
 # Quick Start
+
+- Requirements
+
+  - [아파트매매 실거래자료 openapi 키 신청](https://www.data.go.kr/subMain.jsp?param=T1BFTkFQSUAzMDUwOTg4#/L3B1YnIvdXNlL3ByaS9Jcm9zT3BlbkFwaURldGFpbC9vcGVuQXBpTGlzdFBhZ2UkQF4wMTJtMSRAXnB1YmxpY0RhdGFQaz0zMDUwOTg4JEBeYnJtQ2Q9T0MwMDAzJEBecmVxdWVzdENvdW50PTI0MDYkQF5vcmdJbmRleD1PUEVOQVBJ)
+
 
 - Install package
 
