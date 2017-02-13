@@ -1,5 +1,4 @@
 """real_estate_in_seoul trade check command line tool."""
-
 import configparser
 
 

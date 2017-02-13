@@ -5,9 +5,8 @@ from real_estate_in_seoul.local_code import local_code_db_create
 from real_estate_in_seoul.data import get_trade_price
 
 import argparse
-import os
 import sys
-from typing import Any, Dict, List, Mapping, Optional, Set, Tuple
+from typing import List
 
 
 def process_options(args: List[str]) -> Options:

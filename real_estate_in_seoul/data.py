@@ -1,7 +1,6 @@
-#!/usr/bin/env python3.5
 # -*- coding: utf-8 -*-
-
 from real_estate_in_seoul.local_code import get_local_code
+
 import re
 import urllib.request
 from bs4 import BeautifulSoup
