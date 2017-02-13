@@ -8,6 +8,8 @@ import argparse
 import sys
 from typing import List
 
+MAX_MONTH_LIMIT = 36  # TODO check max limit with api request count
+
 
 def process_options(args: List[str]) -> Options:
     options = Options()
@@ -44,6 +46,8 @@ def process_options(args: List[str]) -> Options:
 
     if args.month_range:
         options.month_range = int(args.month_range[0])
+        if options.month_range > MAX_MONTH_LIMIT:
+            options.month_range = MAX_MONTH_LIMIT
 
     if options.gu is None:
         print('''MUST use -g option, use default 마포구 대흥동 자이''')
