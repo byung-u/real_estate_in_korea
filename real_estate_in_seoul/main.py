@@ -8,7 +8,7 @@ import argparse
 import sys
 from typing import List
 
-MAX_MONTH_LIMIT = 36  # TODO check max limit with api request count
+MAX_MONTH_LIMIT = 60  # TODO check max limit with api request count
 
 
 def process_options(args: List[str]) -> Options:
