@@ -8,7 +8,6 @@
 
   - [아파트매매 실거래자료 openapi 키 신청](https://www.data.go.kr/subMain.jsp?param=T1BFTkFQSUAzMDUwOTg4#/L3B1YnIvdXNlL3ByaS9Jcm9zT3BlbkFwaURldGFpbC9vcGVuQXBpTGlzdFBhZ2UkQF4wMTJtMSRAXnB1YmxpY0RhdGFQaz0zMDUwOTg4JEBeYnJtQ2Q9T0MwMDAzJEBecmVxdWVzdENvdW50PTI0MDYkQF5vcmdJbmRleD1PUEVOQVBJ)
 
-
 - Install package
 
   ```
@@ -21,15 +20,22 @@
 
   - 3달치 아파트 매매가 확인 (def: 마포구 대흥동 자이)
 
-    `% real_estate_in_seoul -m 3`
+    ```
+    % real_estate_in_seoul -m 3
+    ```
 
   - 원하는 '구' 정보로 아파트 정보 확인
 
-    `% real_estate_in_seoul -g 서초구`
+    ```
+    % real_estate_in_seoul -g 서초구
+    ```
 
   - 알고자하는 그 아파트를 검색
 
-    `% real_estate_in_seoul -g 중구 -d 황학동 -t 황학 -m 6`
+    ```
+    % real_estate_in_seoul -g 중구 -d 황학동 -t 황학 -m 6
+    % real_estate_in_seoul -g 서대문구 -d 북가좌동 -t 한양 -m 60
+    ```
 
 - Options
 
