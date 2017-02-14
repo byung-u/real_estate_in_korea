@@ -8,6 +8,7 @@ class Options:
         self.gu = None  # type: str
         self.dong = None  # type: str
         self.apt = None  # type: str
+        self.size = 0.0  # month range  type: float
         self.month_range = 1  # month range  type: int
 
         config = configparser.ConfigParser()
