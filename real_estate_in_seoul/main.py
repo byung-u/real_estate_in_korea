@@ -21,10 +21,10 @@ def process_options(args: List[str]) -> Options:
                                      fromfile_prefix_chars='@',
                                      formatter_class=help_factory)
     parser.add_argument(
-            "-g", "--gu", metavar='gu (Korea district)',
+            "-g", "--gu", metavar='gu Korea district',
             nargs=1, help="[optional] 구")
     parser.add_argument(
-            "-d", "--dong", metavar='dong (Korea district)',
+            "-d", "--dong", metavar='dong Korea district',
             nargs=1, help="[optional] 동")
     parser.add_argument(
             "-t", "--apt", metavar='apartment',
@@ -32,6 +32,9 @@ def process_options(args: List[str]) -> Options:
     parser.add_argument(
             "-m", "--month_range", metavar='checking month range',
             nargs=1, help="[optional] month")
+    parser.add_argument(
+            "-s", "--size", metavar='apt size', type=float,
+            help="[optional] size")
 
     args = parser.parse_args()
 
@@ -48,6 +51,10 @@ def process_options(args: List[str]) -> Options:
         options.month_range = int(args.month_range[0])
         if options.month_range > MAX_MONTH_LIMIT:
             options.month_range = MAX_MONTH_LIMIT
+
+    if args.size:
+        options.size = args.size
+        print(options.size)
 
     if options.gu is None:
         print('''MUST use -g option, use default 마포구 대흥동 자이''')
