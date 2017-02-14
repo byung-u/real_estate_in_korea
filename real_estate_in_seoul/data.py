@@ -29,8 +29,15 @@ def request_trade_price(url: str, options) -> int:
             continue
         if options.apt is not None and info[5].find(options.apt) == -1:
             continue
+        if options.size != 0.0  and options.size != float(info[8]):
+            continue
         ret_msg = '%s %s(%sm²) %s층 %s만원     준공:%s 거래:%s년%s월%s일' % (
-                info[4], info[5], info[8], info[11], info[1], info[2], info[3], info[6], info[7])
+                info[4], info[5], info[8], info[11], info[1], 
+                info[2], info[3], info[6], info[7])
+        #csv_msg = '%s,%s,%s,%s,%s,%s%s%s' % (
+        #        info[4], info[5], info[8], info[11], info[1], 
+        #        info[3], info[6], info[7][:-3])    
+        # info[7][:-3]  1~10 -> 1, 21~31 -> 21
         print(ret_msg)
 
     return 0
