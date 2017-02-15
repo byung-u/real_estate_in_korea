@@ -65,6 +65,7 @@ def get_trade_price(options) -> None:
         request_url = '%s?LAWD_CD=%s&DEAL_YMD=%s&serviceKey=%s' % (
                 options.url, local_code, time_str, options.svc_key)
         # print(request_url)
+        print(time_str)
         ret = request_trade_price(request_url, options)
         if ret != 0:
             print('request_trade_price failed, req_url=%s' % request_url)
