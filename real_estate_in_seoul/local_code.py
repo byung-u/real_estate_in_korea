@@ -51,9 +51,22 @@ def get_local_code(gu) -> int:
 
     c.execute(query)
     data = c.fetchone()
-    conn.close()
     if data is not None:
+        conn.close()
         return int(data[0])
     else:
-        print('[ERR]', data)
-        return -1
+        # retry
+        if (gu.endswith('구')):  # 서현구
+            query = '''SELECT code FROM local_code WHERE district="%s"''' % (gu)
+        else:  # 강남
+            query = '''SELECT code FROM local_code WHERE district="%s구"''' % (gu)
+
+        c.execute(query)
+        data = c.fetchone()
+        if data is not None:
+            conn.close()
+            return int(data[0])
+        else:
+            print('[ERR]', data)
+            conn.close()
+            return -1
