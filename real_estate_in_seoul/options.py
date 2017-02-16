@@ -1,5 +1,6 @@
 """real_estate_in_seoul trade check command line tool."""
 import configparser
+from real_estate_in_seoul import defaults
 
 
 class Options:
@@ -12,6 +13,6 @@ class Options:
         self.month_range = 1  # month range  type: int
 
         config = configparser.ConfigParser()
-        config.readfp(open('./rs.ini'))
+        config.readfp(open(defaults.CONFIG_FILE))
         self.url = config.get('TOKEN', 'apt_trade_url')  # type: str
         self.svc_key = config.get('TOKEN', 'apt_key', raw=True)  # type: str
