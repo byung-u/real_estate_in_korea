@@ -1,6 +1,0 @@
-#!/usr/bin/env python3
-"""real_estate_in_seoul trade checker command line tool."""
-
-from real_estate_in_seoul.main import main
-
-main()
