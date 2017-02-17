@@ -10,19 +10,19 @@ from setuptools import setup, find_packages
 # To use a consistent encoding
 from codecs import open
 from os import path
-from real_estate_in_seoul.version import __version__
+from real_estate_in_korea.version import __version__
 
 version = __version__
-description = 'Real estate in seoul apt check for Python'
+description = 'Real estate in korea apt check for Python'
 long_description = '''
-real_estate_in_seoul -- Real estate in seoul apt check for Python
+real_estate_in_korea -- Real estate in korea apt check for Python
 =================================================================
 TODO: add long desc
 '''.lstrip()
 
 here = path.abspath(path.dirname(__file__))
 
-scripts = ['scripts/real_estate_in_seoul']
+scripts = ['scripts/real_estate_in_korea']
 #if os.name == 'nt':
 #    scripts.append('scripts/mypy.bat')
 
@@ -30,7 +30,7 @@ with open('requirements.txt') as f:
     required = f.read().splitlines()
 
 setup(
-    name='real_estate_in_seoul',
+    name='real_estate_in_korea',
 
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
@@ -41,7 +41,7 @@ setup(
     long_description=long_description,
 
     # The project's main homepage.
-    url='https://github.com/byung-u/real_estate_in_seoul',
+    url='https://github.com/byung-u/real_estate_in_korea',
 
     # Author details
     author='Byungwoo Jeon',
@@ -82,7 +82,7 @@ setup(
 
     # You can just specify the packages manually here if your project is
     # simple. Or you can use find_packages().
-    packages=['real_estate_in_seoul'],
+    packages=['real_estate_in_korea'],
 
     # Alternatively, if you want to distribute just a my_module.py, uncomment
     # this:
