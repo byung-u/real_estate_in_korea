@@ -14,5 +14,7 @@ class Options:
 
         config = configparser.ConfigParser()
         config.readfp(open(defaults.CONFIG_FILE))
-        self.url = config.get('TOKEN', 'apt_trade_url')  # type: str
+        self.trade_url = config.get('TOKEN', 'apt_trade_url')  # type: str
+        self.rent_url = config.get('TOKEN', 'apt_rent_url')  # type: str
         self.svc_key = config.get('TOKEN', 'apt_key', raw=True)  # type: str
+        self.mode = 0  # 0: trade, 1: rent

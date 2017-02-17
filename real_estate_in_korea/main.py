@@ -35,6 +35,7 @@ def process_options(args: List[str]) -> Options:
     parser.add_argument(
             "-s", "--size", metavar='apt size', type=float,
             help="[optional] size")
+    parser.add_argument('--rent', action='store_true')
 
     args = parser.parse_args()
 
@@ -54,7 +55,10 @@ def process_options(args: List[str]) -> Options:
 
     if args.size:
         options.size = args.size
-        print(options.size)
+        # print(options.size)
+
+    if args.rent:
+        options.mode = 1
 
     if options.gu is None:
         print('''MUST use -g option, use default 마포구 대흥동 자이''')
