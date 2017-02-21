@@ -12,5 +12,7 @@ def main():
     print(info3[1], info3[2][:-3])
 
 
+    check_date = "201610"
+    print(check_date[:4], check_date[4:])
 if __name__ == '__main__':
     main()
