@@ -5,11 +5,18 @@ from real_estate_in_korea.local_code import local_code_db_create
 from real_estate_in_korea.data import get_trade_price
 
 import argparse
+import datetime
 import sys
 from typing import List
 
 MAX_MONTH_LIMIT = 60  # TODO check max limit with api request count
 
+def date_str_validate(date_text):
+    try:
+        datetime.datetime.strptime(date_text, '%Y%m')
+        return 0
+    except ValueError:
+        return -1
 
 def process_options(args: List[str]) -> Options:
     options = Options()
@@ -30,11 +37,15 @@ def process_options(args: List[str]) -> Options:
             "-t", "--apt", metavar='apartment',
             nargs=1, help="[optional] APT")
     parser.add_argument(
-            "-m", "--month_range", metavar='checking month range',
+            "-m", "--month-range", metavar='checking month range',
             nargs=1, help="[optional] month")
     parser.add_argument(
             "-s", "--size", metavar='apt size', type=float,
             help="[optional] size")
+    parser.add_argument(
+            "-S", "--start-month", metavar='start month',
+            nargs=1, help="[optional] start month")
+
     parser.add_argument('--rent', action='store_true')
 
     args = parser.parse_args()
@@ -56,6 +67,12 @@ def process_options(args: List[str]) -> Options:
     if args.size:
         options.size = args.size
         # print(options.size)
+
+    if args.start_month:
+        if date_str_validate(args.start_month[0]) == -1:  # 201702 is valid
+            options.start_month = 0
+        else:
+            options.start_month = args.start_month[0]
 
     if args.rent:
         options.mode = 1

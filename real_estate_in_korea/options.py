@@ -11,6 +11,7 @@ class Options:
         self.apt = None  # type: str
         self.size = 0.0  # month range  type: float
         self.month_range = 1  # month range  type: int
+        self.start_month = 0  # month range  type: int
 
         config = configparser.ConfigParser()
         config.readfp(open(defaults.CONFIG_FILE))
