@@ -11,12 +11,14 @@ from typing import List
 
 MAX_MONTH_LIMIT = 60  # TODO check max limit with api request count
 
-def date_str_validate(date_text):
+
+def date_str_validate(date_text: str) -> bool:
     try:
         datetime.datetime.strptime(date_text, '%Y%m')
-        return 0
+        return True
     except ValueError:
-        return -1
+        return False
+
 
 def process_options(args: List[str]) -> Options:
     options = Options()
@@ -69,7 +71,7 @@ def process_options(args: List[str]) -> Options:
         # print(options.size)
 
     if args.start_month:
-        if date_str_validate(args.start_month[0]) == -1:  # 201702 is valid
+        if date_str_validate(args.start_month[0]) is False:
             options.start_month = 0
         else:
             options.start_month = args.start_month[0]
@@ -78,7 +80,7 @@ def process_options(args: List[str]) -> Options:
         options.mode = 1
 
     if options.gu is None:
-        print('''MUST use -g option, use default 마포구 대흥동 자이''')
+        print('''use -g option(MUST), default: 마포구 대흥동 자이''')
         options.gu, options.dong, options.apt = '마포구', '대흥동', '자이'
 
     return options
