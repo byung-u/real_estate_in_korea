@@ -45,7 +45,7 @@ def process_options(args: List[str]) -> Options:
             "-s", "--size", metavar='apt size', type=float,
             help="[optional] size")
     parser.add_argument(
-            "-S", "--start-month", metavar='start month',
+            "-S", "--start-month", metavar='start month', 
             nargs=1, help="[optional] start month")
 
     parser.add_argument('--rent', action='store_true')

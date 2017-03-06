@@ -82,13 +82,13 @@ def get_trade_price(options) -> None:
         print('get_local_code falied, 서울시 %s' % options.gu)
         return
 
-    if options.start_month == 0:
+    if options.start_month == '0':
         now = datetime.now()
         year = now.year
         month = now.month
     else:
-        year = options.start_month[:4]
-        month = options.start_month[4:]
+        year = int(options.start_month[:4])
+        month = int(options.start_month[4:])
 
     if options.mode == 0:  # trade
         url = options.trade_url
