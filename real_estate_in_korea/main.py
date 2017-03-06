@@ -9,7 +9,7 @@ import datetime
 import sys
 from typing import List
 
-MAX_MONTH_LIMIT = 60  # TODO check max limit with api request count
+MAX_MONTH_LIMIT = 144  # 12 year (12 month * 12)
 
 
 def date_str_validate(date_text: str) -> bool:
