@@ -49,6 +49,7 @@ def process_options(args: List[str]) -> Options:
             nargs=1, help="[optional] start month")
 
     parser.add_argument('--rent', action='store_true')
+    parser.add_argument('--text', action='store_true')
 
     args = parser.parse_args()
 
@@ -78,6 +79,9 @@ def process_options(args: List[str]) -> Options:
 
     if args.rent:
         options.mode = 1
+
+    if args.text:
+        options.text = True
 
     if options.gu is None:
         print('''use -g option(MUST), default: 마포구 대흥동 자이''')

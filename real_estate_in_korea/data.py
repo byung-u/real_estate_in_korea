@@ -29,6 +29,12 @@ def request_price(url: str, options) -> int:
     return 0
 
 
+def trade_value_replace(value):
+    # 105,000 만원 -> 1050000000
+    value = value.replace(',', '')
+    return 10000 * int(value)
+
+
 def request_trade_price(items, options) -> int:
     for item in items:
         item = item.text
@@ -40,13 +46,17 @@ def request_trade_price(items, options) -> int:
             continue
         if options.size != 0.0  and options.size != float(info[8]):
             continue
-        ret_msg = '%s %s(%sm²) %s층 %s만원     준공:%s 거래:%s년%s월%s일' % (
-                info[4], info[5], info[8], info[11], info[1], 
-                info[2], info[3], info[6], info[7])
-        #csv_msg = '%s,%s,%s,%s,%s,%s%s%s' % (
-        #        info[4], info[5], info[8], info[11], info[1], 
-        #        info[3], info[6], info[7][:-3])    
-        # info[7][:-3]  1~10 -> 1, 21~31 -> 21
+
+        if options.text is False :
+            ret_msg = '%s %s(%sm²) %s층 %s만원     준공:%s 거래:%s년%s월%s일' % (
+                    info[4], info[5], info[8], info[11], info[1], 
+                    info[2], info[3], info[6], info[7])
+        else:
+            trade_value = trade_value_replace(info[1].strip())
+            ret_msg = '%s,%s,%s,%s,%d,%s%02d%s' % (
+                    info[4], info[5], info[8], info[11], trade_value,
+                    info[3], int(info[6]), info[7][:-3])    
+            # info[7][:-3]  1~10 -> 1, 21~31 -> 21
         print(ret_msg)
 
     return 0
@@ -67,9 +77,16 @@ def request_rent_price(items, options) -> int:
             continue
         if options.size != 0.0  and options.size != float(info[9]):
             continue
-        ret_msg = '%s %s(%sm²) %s층 %s만원(월세%s)     준공:%s 거래:%s년%s월%s일' % (
-                info[3], info[5], info[9], info[12], info[4], info[7],
-                info[1], info[2], info[6], info[8])
+
+        if options.text is False :
+            ret_msg = '%s %s(%sm²) %s층 %s만원(월세%s)     준공:%s 거래:%s년%s월%s일' % (
+                    info[3], info[5], info[9], info[12], info[4], info[7],
+                    info[1], info[2], info[6], info[8])
+        else:
+            ret_msg = '%s,%s,%s,%s,%s,%s,%s,%s%02s%s' % (
+                    info[3], info[5], info[9], info[12], info[4], info[7],
+                    info[1], info[2], info[6], info[8][:-3])
+ 
         print(ret_msg)
 
     return 0

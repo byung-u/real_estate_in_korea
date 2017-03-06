@@ -19,3 +19,4 @@ class Options:
         self.rent_url = config.get('TOKEN', 'apt_rent_url')  # type: str
         self.svc_key = config.get('TOKEN', 'apt_key', raw=True)  # type: str
         self.mode = 0  # 0: trade, 1: rent type: int
+        self.text = False  # test output use
