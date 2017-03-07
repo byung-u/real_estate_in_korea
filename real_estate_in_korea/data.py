@@ -53,9 +53,9 @@ def request_trade_price(items, options) -> int:
                     info[2], info[3], info[6], info[7])
         else:
             trade_value = trade_value_replace(info[1].strip())
-            ret_msg = '%s,%s,%s,%s,%d,%s%02d%s' % (
+            ret_msg = '%s,%s,%s,%s,%d,%s%02d%02d' % (
                     info[4], info[5], info[8], info[11], trade_value,
-                    info[3], int(info[6]), info[7][:-3])    
+                    info[3], int(info[6]), int(info[7][:-3]))    
             # info[7][:-3]  1~10 -> 1, 21~31 -> 21
         print(ret_msg)
 
