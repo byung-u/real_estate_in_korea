@@ -13,7 +13,8 @@ from os import path
 from real_estate_in_korea.version import __version__
 
 version = __version__
-description = 'Real estate in korea apt check for Python'
+archive_url = 'https://github.com/byung-u/real_estate_in_korea/archive/%s.tar.gz' % version
+description = 'Real estate in korea apartment trade value check with Python'
 long_description = '''
 real_estate_in_korea -- Real estate in korea apt check for Python
 =================================================================
@@ -42,6 +43,7 @@ setup(
 
     # The project's main homepage.
     url='https://github.com/byung-u/real_estate_in_korea',
+    download_url = archive_url,
 
     # Author details
     author='Byungwoo Jeon',
@@ -56,7 +58,7 @@ setup(
         #   3 - Alpha
         #   4 - Beta
         #   5 - Production/Stable
-        'Development Status :: 2 - Pre-Alpha',
+        'Development Status :: 5 - Production/Stable',
 
         'Environment :: Console', 
         # Indicate who your project is intended for
@@ -78,7 +80,7 @@ setup(
     ],
 
     # What does your project relate to?
-    #keywords='sample setuptools development',
+    keywords= ['realestate', 'korea'],
 
     # You can just specify the packages manually here if your project is
     # simple. Or you can use find_packages().
