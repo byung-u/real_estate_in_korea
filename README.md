@@ -11,6 +11,7 @@ Quick Start
   - Python 3.x
   - [아파트 실거래자료 openapi 키 신청](https://www.data.go.kr/subMain.jsp?param=T1BFTkFQSUAzMDUwOTg4#/L3B1YnIvdXNlL3ByaS9Jcm9zT3BlbkFwaURldGFpbC9vcGVuQXBpTGlzdFBhZ2UkQF4wMTJtMSRAXnB1YmxpY0RhdGFQaz0zMDUwOTg4JEBeYnJtQ2Q9T0MwMDAzJEBecmVxdWVzdENvdW50PTI0MDYkQF5vcmdJbmRleD1PUEVOQVBJ)
 
+
 - Install package
 
   ```
@@ -72,7 +73,8 @@ Release
   - 아파트 전세가 조회기능 
   - 옵션 추가 (크기, 월단위 시작날짜)
 
-- 0.2.1 (...)
+
+- 0.2.1 (current) 
   - 출력 포멧 추가 (for using pandas, pyplot)
 
 License
