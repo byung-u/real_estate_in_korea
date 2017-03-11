@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
+import os
 import sqlite3
 
 
 def local_code_db_create() -> None:
-    conn = sqlite3.connect('local_code.db')
+    db_file_path = os.environ.get('SQLITE3_FOR_REK') 
+    conn = sqlite3.connect(db_file_path)
     c = conn.cursor()
 
     c.execute('''
