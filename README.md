@@ -76,6 +76,7 @@ Release
 
 - 0.2.1 (current) 
   - 출력 포멧 추가 (for using pandas, pyplot)
+  - 설정 파일 삭제 (configparser -> os.environ.get)
 
 License
 -------
