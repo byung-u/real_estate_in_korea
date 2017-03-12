@@ -63,9 +63,10 @@ Quick Start
 
 Release
 -------
-- 0.1.0 (Sunday, 12 February 2017)
-  - 서울 아파트 매매가 조회기능
-  - 옵션 추가 (구, 동, 아파트, 조회기간)
+
+- 0.2.1 (current) 
+  - 출력 포멧 추가 (for using pandas, pyplot)
+  - 설정 파일 삭제 (configparser -> os.environ.get)
 
 
 - 0.2.0 (Friday, 24 February 2017)
@@ -74,9 +75,20 @@ Release
   - 옵션 추가 (크기, 월단위 시작날짜)
 
 
-- 0.2.1 (current) 
-  - 출력 포멧 추가 (for using pandas, pyplot)
-  - 설정 파일 삭제 (configparser -> os.environ.get)
+- 0.1.0 (Sunday, 12 February 2017)
+  - 서울 아파트 매매가 조회기능
+  - 옵션 추가 (구, 동, 아파트, 조회기간)
+
+
+Configure
+-------
+
+```
+export SQLITE3_FOR_REK="$HOME/xxx"
+export DATA_APT_RENT_URL="xxx"
+export DATA_APT_TRADE_URL="xxx"
+export DATA_APT_API_KEY="xxx"
+```
 
 License
 -------
