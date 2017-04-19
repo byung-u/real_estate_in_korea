@@ -15,5 +15,6 @@ class Options:
         self.trade_url = os.environ.get('DATA_APT_TRADE_URL')  # type: str
         self.rent_url = os.environ.get('DATA_APT_RENTE_URL')  # type: str
         self.svc_key = os.environ.get('DATA_APT_API_KEY')  # type: str
+        self.local_code = os.environ.get('SQLITE3_FOR_REK')  # type: str
         self.mode = 0  # 0: trade, 1: rent type: int
         self.text = False  # test output use
