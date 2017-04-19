@@ -94,7 +94,7 @@ def request_rent_price(items, options) -> int:
 
 def get_trade_price(options) -> None:
 
-    local_code = get_local_code(options.gu)
+    local_code = get_local_code(options.local_code, options.gu)
     if local_code == -1:
         print('get_local_code falied, 서울시 %s' % options.gu)
         return
