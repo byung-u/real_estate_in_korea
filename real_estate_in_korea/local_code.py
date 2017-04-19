@@ -3,9 +3,8 @@ import os
 import sqlite3
 
 
-def local_code_db_create() -> None:
-    db_file_path = os.environ.get('SQLITE3_FOR_REK') 
-    conn = sqlite3.connect(db_file_path)
+def local_code_db_create(local_code_path) -> None:
+    conn = sqlite3.connect(local_code_path)
     c = conn.cursor()
 
     c.execute('''
@@ -40,8 +39,8 @@ def insert_local_code(c, conn) -> None:
     conn.commit()
 
 
-def get_local_code(gu) -> int:
-    conn = sqlite3.connect('local_code.db')
+def get_local_code(local_code_path, gu) -> int:
+    conn = sqlite3.connect(local_code_path)
     c = conn.cursor()
 
     if (gu.endswith('구')):  # 강남구
