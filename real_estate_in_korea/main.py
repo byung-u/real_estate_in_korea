@@ -93,7 +93,7 @@ def process_options(args: List[str]) -> Options:
 def main() -> None:
     options = process_options(sys.argv[1:])
 
-    local_code_db_create()  # if not exist
+    local_code_db_create(options.local_code)  # if not exist
 
     get_trade_price(options)
 
